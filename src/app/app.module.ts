@@ -8,27 +8,39 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { DataService } from './data.service';
+import { HttpModule } from '@angular/http';
+import { OperatorPage } from '../pages/Operator/operator';
+import { OperatorService } from '../services/operator.serivce';
+import { CreateOperatorPage } from '../pages/Operator/CreateOperator/createrOperator';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    OperatorPage,
+    CreateOperatorPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    OperatorPage,
+    CreateOperatorPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DataService,
+    OperatorService
   ]
 })
 export class AppModule {}
